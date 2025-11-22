@@ -16,5 +16,6 @@ public class BaseTest {
                 .given()
                 .contentType(ContentType.JSON)
                 .accept(ContentType.JSON);
+
     }
 }
