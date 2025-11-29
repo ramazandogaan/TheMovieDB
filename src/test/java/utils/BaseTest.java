@@ -1,4 +1,4 @@
-package api;
+package utils;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -16,6 +16,5 @@ public class BaseTest {
                 .given()
                 .contentType(ContentType.JSON)
                 .accept(ContentType.JSON);
-
     }
 }
