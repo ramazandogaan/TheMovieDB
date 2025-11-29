@@ -7,6 +7,7 @@ import org.testng.annotations.BeforeClass;
 
 public class BaseTest {
     protected RequestSpecification request;
+    private String token = ConfigReader.get("token");
 
     @BeforeClass
     public void setup() {
@@ -15,6 +16,7 @@ public class BaseTest {
         request = RestAssured
                 .given()
                 .contentType(ContentType.JSON)
-                .accept(ContentType.JSON);
+                .accept(ContentType.JSON)
+                .header("Authorization", "Bearer " + token);
     }
 }

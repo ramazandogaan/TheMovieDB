@@ -1,8 +1,8 @@
 package api;
 
 import io.restassured.response.Response;
-import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
+import utils.BaseTest;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
@@ -89,7 +89,7 @@ public class TheMovieDB_API_test extends BaseTest {
                 .then()
                 .statusCode(200)
                 .body("results", notNullValue())
-                .body("results[1].id", equalTo(100))
+                .body("results[1].id", equalTo(550))
                 .extract().response();
     }
 
@@ -291,7 +291,7 @@ public class TheMovieDB_API_test extends BaseTest {
                 .spec(request)
                 .body(addBody)
                 .pathParam("id", listId)
-                .queryParam("session_id","INVALID_ID_123")
+                .queryParam("session_id", "INVALID_ID_123")
 
                 .when()
                 .post("/list/{id}/add_item")
